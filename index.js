@@ -21,7 +21,11 @@ let y = idx % 3;
 console.log(x, y);
 turn === "X" ? xNumbers.push(magicNumbers[x][y]) : oNumbers.push(magicNumbers[x][y]);
 // you can win only after 5 moves has been played
-if (turnCounter > 4) {
+if (turnCounter === 9 && !checkWin(oNumbers)) {
+  setTimeout(() => alert("It's a draw!"), 10);
+  setTimeout(() => reset(), 10);
+}
+else if (turnCounter > 4) {
     if (turn === 'X') {
         if(checkWin(xNumbers)) {
             // you have to wait 10 miliseconds because browser needs time to repaint
